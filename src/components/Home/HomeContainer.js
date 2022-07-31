@@ -18,7 +18,5 @@ export default function HomeContainer() {
       });
   }, []);
 
-  console.log({ allPosts });
-
   return <HomeComponent {...{ allPosts }} />;
 }
