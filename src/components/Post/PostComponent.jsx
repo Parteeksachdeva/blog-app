@@ -23,7 +23,7 @@ export default function PostComponent({
         {/* Comments */}
         <section className="space-y-4">
           <h1 className="text-2xl font-bold">Comments</h1>
-          <div className="grid grid-cols-4 gap-4">
+          <div className="grid md:grid-cols-4 gap-4">
             {comments.map((comment, index) => (
               <CardContainer key={index} comment={comment} />
             ))}
