@@ -1,10 +1,14 @@
+import { Route, Routes } from "react-router-dom";
+
 import "./App.css";
+import HomeContainer from "./components/Home/HomeContainer";
 
 function App() {
   return (
-    <div className="flex justify-center">
-      <p>Hello React app</p>
-    </div>
+    <Routes>
+      <Route path="/" element={<HomeContainer />} />
+      <Route path="about" element={<p></p>} />
+    </Routes>
   );
 }
 
