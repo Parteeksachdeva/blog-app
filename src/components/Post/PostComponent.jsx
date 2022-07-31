@@ -2,7 +2,17 @@ import React from "react";
 
 import CardContainer from "../CommentCard/CardContainer";
 
-export default function PostComponent({ post, handleClick, comments }) {
+export default function PostComponent({
+  post,
+  handleClick,
+  comments,
+  isPostLoading,
+  isCommentsLoading,
+}) {
+  if (isPostLoading || isCommentsLoading) {
+    return <p className="p-10">Loading...</p>;
+  }
+
   return (
     <section className="rounded p-10 flex flex-col justify-between space-y-10">
       <div>

@@ -1,7 +1,10 @@
 import React from "react";
 import CardContainer from "../PostCard/CardContainer";
 
-export default function HomeComponent({ allPosts }) {
+export default function HomeComponent({ allPosts, isLoading }) {
+  if (isLoading) {
+    return <p className="p-10">Loading...</p>;
+  }
   return (
     <section className="p-10 space-y-5">
       <h1 className="text-3xl font-bold">Blogs</h1>

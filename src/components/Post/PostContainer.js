@@ -11,6 +11,8 @@ export default function PostContainer() {
 
   const [post, setPost] = useState({});
   const [comments, setComments] = useState([]);
+  const [isPostLoading, setIsPostLoading] = useState(true);
+  const [isCommentsLoading, setIsCommentsLoading] = useState(true);
 
   const handleClick = () => {
     navigate(`/`);
@@ -21,6 +23,7 @@ export default function PostContainer() {
       .get(`${API_URL}/posts/${postId}`)
       .then(({ data }) => {
         setPost(data);
+        setIsPostLoading(false);
       })
       .catch((err) => {
         console.error(err);
@@ -32,6 +35,7 @@ export default function PostContainer() {
       .get(`${API_URL}/comments?postId=${postId}`)
       .then(({ data }) => {
         setComments(data);
+        setIsCommentsLoading(false);
       })
       .catch((err) => {
         console.error(err);
@@ -46,5 +50,9 @@ export default function PostContainer() {
     fetchComments();
   }, [fetchComments]);
 
-  return <PostComponent {...{ post, handleClick, comments }} />;
+  return (
+    <PostComponent
+      {...{ post, handleClick, comments, isPostLoading, isCommentsLoading }}
+    />
+  );
 }
